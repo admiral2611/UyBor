@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/loginScreen">
+
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.admiral26.uybor.ui.auth.LoginScreen"
+        android:label="screen_login"
+        tools:layout="@layout/screen_login" >
+        <action
+            android:id="@+id/action_loginScreen_to_codeScreen"
+            app:destination="@id/codeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/codeScreen"
+        android:name="com.admiral26.uybor.ui.auth.CodeScreen"
+        android:label="screen_code"
+        tools:layout="@layout/screen_code" >
+        <action
+            android:id="@+id/action_codeScreen_to_userInformationScreen"
+            app:destination="@id/userInformationScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInformationScreen"
+        android:name="com.admiral26.uybor.ui.auth.UserInformationScreen"
+        android:label="screen_user_information"
+        tools:layout="@layout/screen_user_information" />
+</navigation>
