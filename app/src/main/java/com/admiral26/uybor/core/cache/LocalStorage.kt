@@ -4,7 +4,10 @@ import android.content.Context
 import com.admiral26.uybor.util.BooleanPreference
 import com.admiral26.uybor.util.StringPreference
 import com.securepreferences.SecurePreferences
+import dagger.Provides
+import javax.inject.Inject
 import javax.inject.Singleton
+
 
 @Singleton
 class LocalStorage (context: Context) {
@@ -12,5 +15,6 @@ class LocalStorage (context: Context) {
     private val securePref = SecurePreferences(context,KEY,"local_security.xml")
 
     var isFirst:Boolean by BooleanPreference(securePref,true)
+
     var access:String by StringPreference(securePref,"")
 }

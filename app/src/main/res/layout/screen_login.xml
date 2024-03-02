@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.auth.LoginScreen"
+    tools:context=".ui.auth.register.LoginScreen"
     android:fitsSystemWindows="true"
     android:id="@+id/signUpConstraintLayout">
 
@@ -64,7 +64,7 @@
                 app:startIconTint="#AB090909">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/username"
+                    android:id="@+id/phoneNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Number"

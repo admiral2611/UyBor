@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginScreen"
-        android:name="com.admiral26.uybor.ui.auth.LoginScreen"
+        android:name="com.admiral26.uybor.ui.auth.register.LoginScreen"
         android:label="screen_login"
         tools:layout="@layout/screen_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/codeScreen"
-        android:name="com.admiral26.uybor.ui.auth.CodeScreen"
+        android:name="com.admiral26.uybor.ui.auth.codeVerification.CodeScreen"
         android:label="screen_code"
         tools:layout="@layout/screen_code" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/userInformationScreen"
-        android:name="com.admiral26.uybor.ui.auth.UserInformationScreen"
+        android:name="com.admiral26.uybor.ui.auth.userInfo.UserInformationScreen"
         android:label="screen_user_information"
         tools:layout="@layout/screen_user_information" />
 </navigation>

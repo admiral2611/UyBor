@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.UserInformationScreen">
+    tools:context=".ui.auth.userInfo.UserInformationScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -30,7 +30,6 @@
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/verification_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
@@ -49,10 +48,36 @@
             app:startIconTint="#AB090909">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/full_name"
+                android:id="@+id/first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Full Name"
+                android:hint="Firs Name"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="#000"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLastName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColorHint="#D0070707"
+            app:boxStrokeColor="@color/black"
+
+            app:layout_constraintTop_toBottomOf="@+id/textInputFullName"
+            app:startIconTint="#AB090909">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
                 android:imeOptions="actionNext"
                 android:inputType="text"
                 android:singleLine="true"
@@ -70,7 +95,7 @@
             android:padding="8dp"
             android:textColorHint="#D0070707"
             app:boxStrokeColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/textInputFullName"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLastName"
             app:startIconTint="#AB090909">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -95,6 +120,8 @@
             android:padding="8dp"
             android:textColorHint="#D0070707"
             app:boxStrokeColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputUserName"
             app:startIconTint="#AB090909">
 

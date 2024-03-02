@@ -1,4 +1,4 @@
-package com.admiral26.uybor.core.network
+package com.admiral26.uybor.core.di
 
 import android.content.Context
 import com.admiral26.uybor.core.cache.LocalStorage
@@ -20,7 +20,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule  {
+object NetworkModule {
 
 
     @[Provides Singleton]
@@ -33,27 +33,30 @@ object NetworkModule  {
     }
 
     @[Provides Singleton]
-    fun provideOkHttpClient(checkerInterceptor: ChuckerInterceptor): OkHttpClient {
+    fun provideOkHttpClient(
+        checkerInterceptor: ChuckerInterceptor,
+        interceptor: Interceptor
+    ): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(1, TimeUnit.MINUTES)
             .writeTimeout(1, TimeUnit.MINUTES)
             .readTimeout(1, TimeUnit.MINUTES)
             .addInterceptor(checkerInterceptor)
-            .addInterceptor(interception())
+            .addInterceptor(interceptor)
             .build()
     }
 
-    private val cache : LocalStorage?=null
+
     @[Provides Singleton]
-    private fun interception (): Interceptor {
-            return Interceptor { chain: Interceptor.Chain ->
-                val request = chain.request()
-                val builder: Request.Builder = request.newBuilder()
-                builder
-                    .addHeader("Authorization", "Bearer ${cache?.access}")
-                val response = chain.proceed(builder.build())
-                response
-            }
+     fun interception(cache: LocalStorage): Interceptor {
+        return Interceptor { chain: Interceptor.Chain ->
+            val request = chain.request()
+            val builder: Request.Builder = request.newBuilder()
+            builder
+                .addHeader("Authorization", "Bearer ${cache.access}")
+            val response = chain.proceed(builder.build())
+            response
+        }
     }
 
     @[Provides Singleton]
