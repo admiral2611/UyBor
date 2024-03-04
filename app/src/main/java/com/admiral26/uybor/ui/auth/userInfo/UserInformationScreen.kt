@@ -4,9 +4,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.admiral26.uybor.R
-import com.admiral26.uybor.core.model.userInfo.UserInfoRequest
+import com.admiral26.uybor.core.model.auth.userInfo.UserInfoRequest
 import com.admiral26.uybor.databinding.ScreenUserInformationBinding
 import com.admiral26.uybor.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,7 +33,7 @@ class UserInformationScreen : BaseFragment(R.layout.screen_user_information) {
             if (firsName.isBlank() || lastName.isBlank() || userName.isBlank() || password1.isBlank() || password2.isBlank()) {
                 return@setOnClickListener
             }
-            if (password1 == password2) {
+            if (password1 != password2) {
                 Toast.makeText(requireContext(), "Password Wrong", Toast.LENGTH_SHORT).show()
             }
             val data = UserInfoRequest(
@@ -51,10 +52,12 @@ class UserInformationScreen : BaseFragment(R.layout.screen_user_information) {
 
     private fun observe() {
         viewModel.userInfo.observe(this) {
+
             it?.let {
                 if (it.success) {
                     Toast.makeText(requireContext(), "Muvofaqiyatli otdingiz", Toast.LENGTH_SHORT)
                         .show()
+                    findNavController().navigate(UserInformationScreenDirections.actionUserInformationScreenToMainScreen())
                 }
             }
         }

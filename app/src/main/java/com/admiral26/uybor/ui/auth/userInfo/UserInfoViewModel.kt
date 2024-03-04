@@ -1,8 +1,8 @@
 package com.admiral26.uybor.ui.auth.userInfo
 
 import androidx.lifecycle.LiveData
-import com.admiral26.uybor.core.model.userInfo.UserInfoRequest
-import com.admiral26.uybor.core.model.userInfo.UserInfoResponse
+import com.admiral26.uybor.core.model.auth.userInfo.UserInfoRequest
+import com.admiral26.uybor.core.model.auth.userInfo.UserInfoResponse
 
 interface UserInfoViewModel {
 

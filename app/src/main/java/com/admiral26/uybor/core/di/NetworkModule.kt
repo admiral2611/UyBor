@@ -35,29 +35,29 @@ object NetworkModule {
     @[Provides Singleton]
     fun provideOkHttpClient(
         checkerInterceptor: ChuckerInterceptor,
-        interceptor: Interceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(1, TimeUnit.MINUTES)
             .writeTimeout(1, TimeUnit.MINUTES)
             .readTimeout(1, TimeUnit.MINUTES)
             .addInterceptor(checkerInterceptor)
-            .addInterceptor(interceptor)
+            /*.addInterceptor(interceptor)*/
             .build()
     }
 
 
-    @[Provides Singleton]
+   /* @[Provides Singleton]
      fun interception(cache: LocalStorage): Interceptor {
         return Interceptor { chain: Interceptor.Chain ->
             val request = chain.request()
             val builder: Request.Builder = request.newBuilder()
             builder
-                .addHeader("Authorization", "Bearer ${cache.access}")
+                .addHeader("Content-type","application/json")
+                *//*.addHeader("Authorization", "Bearer ${cache.access}")*//*
             val response = chain.proceed(builder.build())
             response
         }
-    }
+    }*/
 
     @[Provides Singleton]
     fun provideChunkier(@ApplicationContext context: Context): ChuckerInterceptor {

@@ -1,13 +1,14 @@
 package com.admiral26.uybor.ui.auth.codeVerification
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.admiral26.movieappmvvmauth.util.ResultWrapper
-import com.admiral26.uybor.core.model.code.CodeResponse
-import com.admiral26.uybor.core.model.verification.VerificationRequest
-import com.admiral26.uybor.core.model.verification.VerificationResponse
+import com.admiral26.uybor.core.model.auth.code.CodeResponse
+import com.admiral26.uybor.core.model.auth.verification.VerificationRequest
+import com.admiral26.uybor.core.model.auth.verification.VerificationResponse
 import com.admiral26.uybor.core.repo.VerificationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -25,6 +26,7 @@ class CodeViewModelImp @Inject constructor(
     override val verificationNum: LiveData<VerificationResponse?> = _verificationNum
 
     override fun getCode() {
+        Log.d("TAGaaa", "getCode: ")
         viewModelScope.launch(Dispatchers.IO) {
             when (val result = repository.getCode()) {
 
@@ -37,6 +39,7 @@ class CodeViewModelImp @Inject constructor(
                 }
 
                 is ResultWrapper.Success -> {
+                    Log.d("TAG", "getCode: ${result.response}")
                     _getCodeLd.postValue(result.response)
                 }
             }

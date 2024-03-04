@@ -1,7 +1,7 @@
 package com.admiral26.uybor.core.service
 
-import com.admiral26.uybor.core.model.signUp.NumberRequest
-import com.admiral26.uybor.core.model.signUp.NumberResponse
+import com.admiral26.uybor.core.model.auth.signUp.NumberRequest
+import com.admiral26.uybor.core.model.auth.signUp.NumberResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

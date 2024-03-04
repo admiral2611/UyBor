@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.admiral26.movieappmvvmauth.util.ResultWrapper
 import com.admiral26.uybor.core.cache.LocalStorage
-import com.admiral26.uybor.core.model.signUp.NumberRequest
-import com.admiral26.uybor.core.model.signUp.NumberResponse
+import com.admiral26.uybor.core.model.auth.signUp.NumberRequest
+import com.admiral26.uybor.core.model.auth.signUp.NumberResponse
 import com.admiral26.uybor.core.repo.SignUpRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

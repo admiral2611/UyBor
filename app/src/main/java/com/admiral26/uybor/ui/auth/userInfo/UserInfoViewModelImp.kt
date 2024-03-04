@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.admiral26.movieappmvvmauth.util.ResultWrapper
-import com.admiral26.uybor.core.model.userInfo.UserInfoRequest
-import com.admiral26.uybor.core.model.userInfo.UserInfoResponse
+import com.admiral26.uybor.core.model.auth.userInfo.UserInfoRequest
+import com.admiral26.uybor.core.model.auth.userInfo.UserInfoResponse
 import com.admiral26.uybor.core.repo.UserInfoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

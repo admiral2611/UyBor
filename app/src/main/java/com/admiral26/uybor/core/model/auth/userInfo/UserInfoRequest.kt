@@ -1,4 +1,4 @@
-package com.admiral26.uybor.core.model.userInfo
+package com.admiral26.uybor.core.model.auth.userInfo
 
 
 import com.google.gson.annotations.SerializedName

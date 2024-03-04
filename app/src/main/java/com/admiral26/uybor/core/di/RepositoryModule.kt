@@ -1,11 +1,14 @@
 package com.admiral26.uybor.core.di
 
+import com.admiral26.uybor.core.repo.HomeRepository
 import com.admiral26.uybor.core.repo.SignUpRepository
 import com.admiral26.uybor.core.repo.UserInfoRepository
 import com.admiral26.uybor.core.repo.VerificationRepository
+import com.admiral26.uybor.core.repo.imp.HomeRepositoryImp
 import com.admiral26.uybor.core.repo.imp.SignUpRepositoryImp
 import com.admiral26.uybor.core.repo.imp.UserInfoRepositoryImp
 import com.admiral26.uybor.core.repo.imp.VerificationRepositoryImp
+import com.admiral26.uybor.core.service.HomeService
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -24,4 +27,7 @@ interface RepositoryModule {
 
     @[Binds Singleton]
     fun bindUserInfoRepository(repositoryImp: UserInfoRepositoryImp): UserInfoRepository
+
+    @[Binds Singleton]
+    fun bindHomeService(repositoryImp: HomeRepositoryImp): HomeRepository
 }

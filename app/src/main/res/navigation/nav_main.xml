@@ -27,5 +27,14 @@
         android:id="@+id/userInformationScreen"
         android:name="com.admiral26.uybor.ui.auth.userInfo.UserInformationScreen"
         android:label="screen_user_information"
-        tools:layout="@layout/screen_user_information" />
+        tools:layout="@layout/screen_user_information" >
+        <action
+            android:id="@+id/action_userInformationScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.admiral26.uybor.ui.main_screen.MainScreen"
+        android:label="screen_main"
+        tools:layout="@layout/screen_main" />
 </navigation>
