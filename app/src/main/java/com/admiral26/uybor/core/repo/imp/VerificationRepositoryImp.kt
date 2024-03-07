@@ -1,8 +1,7 @@
 package com.admiral26.uybor.core.repo.imp
 
-import android.util.Log
-import com.admiral26.movieappmvvmauth.util.ResultWrapper
-import com.admiral26.movieappmvvmauth.util.parseResponse
+import com.admiral26.uybor.util.ResultWrapper
+import com.admiral26.uybor.util.parseResponse
 import com.admiral26.uybor.core.cache.LocalStorage
 import com.admiral26.uybor.core.model.auth.code.CodeResponse
 import com.admiral26.uybor.core.model.auth.verification.VerificationRequest
@@ -17,7 +16,6 @@ class VerificationRepositoryImp @Inject constructor(
     private val sessionId: LocalStorage
 ) : VerificationRepository {
     override suspend fun getCode(): ResultWrapper<CodeResponse?, Any> {
-        Log.d("TAGaaa", "getCode: ")
         return parseResponse(Dispatchers.IO) {
             service.getCode("Bearer " + sessionId.access)
         }

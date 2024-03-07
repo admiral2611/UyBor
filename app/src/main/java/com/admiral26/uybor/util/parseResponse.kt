@@ -1,4 +1,4 @@
-package com.admiral26.movieappmvvmauth.util
+package com.admiral26.uybor.util
 
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineDispatcher

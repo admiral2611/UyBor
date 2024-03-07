@@ -35,6 +35,7 @@ object NetworkModule {
     @[Provides Singleton]
     fun provideOkHttpClient(
         checkerInterceptor: ChuckerInterceptor,
+
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(1, TimeUnit.MINUTES)
@@ -53,7 +54,6 @@ object NetworkModule {
             val builder: Request.Builder = request.newBuilder()
             builder
                 .addHeader("Content-type","application/json")
-                *//*.addHeader("Authorization", "Bearer ${cache.access}")*//*
             val response = chain.proceed(builder.build())
             response
         }

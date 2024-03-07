@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.admiral26.movieappmvvmauth.util.ResultWrapper
+import com.admiral26.uybor.util.ResultWrapper
 import com.admiral26.uybor.core.cache.LocalStorage
 import com.admiral26.uybor.core.model.auth.signUp.NumberRequest
 import com.admiral26.uybor.core.model.auth.signUp.NumberResponse
@@ -15,11 +15,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModelImp @Inject constructor(
+class SignUpViewModelImp @Inject constructor(
     private val repository: SignUpRepository,
     private val cache: LocalStorage
-) : LoginViewModel, ViewModel() {
+) : SignUpViewModel, ViewModel() {
     private val _numberLd = MutableLiveData<NumberResponse?>()
+    private val error=MutableLiveData<String>()
     override val numberLd: LiveData<NumberResponse?> = _numberLd
 
     override fun number(number: NumberRequest) {
@@ -34,7 +35,7 @@ class LoginViewModelImp @Inject constructor(
                 }
 
                 is ResultWrapper.Success -> {
-                    _numberLd.postValue(result.response)
+                    result.response?.access?.let { saveAccess(it) }
                 }
             }
         }

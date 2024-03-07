@@ -1,4 +1,4 @@
-package com.admiral26.movieappmvvmauth.util
+package com.admiral26.uybor.util
 
 sealed class ResultWrapper<out S, out E> {
     data class Success<out S>(val code: Int? = null, val response: S? = null) :

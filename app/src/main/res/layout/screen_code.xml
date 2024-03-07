@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter you code"
                 android:imeOptions="actionNext"
-                android:inputType="text"
+                android:inputType="number"
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHint="#000"

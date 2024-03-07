@@ -13,9 +13,9 @@ import com.admiral26.uybor.util.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginScreen : BaseFragment(R.layout.screen_login) {
+class SignUpScreen : BaseFragment(R.layout.screen_login) {
     private val binding by viewBinding(ScreenLoginBinding::bind)
-    private val viewModel: LoginViewModel by viewModels<LoginViewModelImp>()
+    private val viewModel: SignUpViewModel by viewModels<SignUpViewModelImp>()
     override fun onCreated(view: View, savedInstanceState: Bundle?) {
         observe()
         listenAction()
@@ -38,7 +38,7 @@ class LoginScreen : BaseFragment(R.layout.screen_login) {
             it?.let { token ->
                 Log.d("TAGtoken", "observe: ${token.access}")
                 viewModel.saveAccess(token.access)
-                findNavController().navigate(LoginScreenDirections.actionLoginScreenToCodeScreen())
+                findNavController().navigate(SignUpScreenDirections.actionLoginScreenToCodeScreen())
             }
         }
     }

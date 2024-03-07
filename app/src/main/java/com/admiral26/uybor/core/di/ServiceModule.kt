@@ -2,6 +2,7 @@ package com.admiral26.uybor.core.di
 
 import com.admiral26.uybor.core.cache.LocalStorage
 import com.admiral26.uybor.core.service.HomeService
+import com.admiral26.uybor.core.service.LoginService
 import com.admiral26.uybor.core.service.SignUpService
 import com.admiral26.uybor.core.service.UserInfoRegisterService
 import com.admiral26.uybor.core.service.VerificationService
@@ -34,6 +35,11 @@ object ServiceModule {
     @[Provides Singleton]
     fun provideHome(retrofit: Retrofit): HomeService {
         return retrofit.create(HomeService::class.java)
+    }
+
+    @[Provides Singleton]
+    fun provideLogin(retrofit: Retrofit):LoginService{
+        return retrofit.create(LoginService::class.java)
     }
 
 

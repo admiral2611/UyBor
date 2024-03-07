@@ -1,6 +1,6 @@
 package com.admiral26.uybor.core.repo
 
-import com.admiral26.movieappmvvmauth.util.ResultWrapper
+import com.admiral26.uybor.util.ResultWrapper
 import com.admiral26.uybor.core.model.home.HomeResponse
 
 interface HomeRepository {

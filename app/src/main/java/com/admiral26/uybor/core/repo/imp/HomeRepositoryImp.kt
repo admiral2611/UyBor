@@ -1,7 +1,7 @@
 package com.admiral26.uybor.core.repo.imp
 
-import com.admiral26.movieappmvvmauth.util.ResultWrapper
-import com.admiral26.movieappmvvmauth.util.parseResponse
+import com.admiral26.uybor.util.ResultWrapper
+import com.admiral26.uybor.util.parseResponse
 import com.admiral26.uybor.core.cache.LocalStorage
 import com.admiral26.uybor.core.model.home.HomeResponse
 import com.admiral26.uybor.core.repo.HomeRepository

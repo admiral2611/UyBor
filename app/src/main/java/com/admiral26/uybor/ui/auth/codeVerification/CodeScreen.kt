@@ -39,8 +39,7 @@ class CodeScreen : BaseFragment(R.layout.screen_code) {
         viewModel.getCodeLd.observe(viewLifecycleOwner){
             Log.d("TAGcode", "observe:")
             it?.let {
-                Toast.makeText(requireContext(), it.code, Toast.LENGTH_SHORT).show()
-                binding.code.setText(it.code.toString())
+                Toast.makeText(requireContext(), "${it.code}", Toast.LENGTH_SHORT).show()
             }
         }
 

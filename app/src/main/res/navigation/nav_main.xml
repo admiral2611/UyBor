@@ -3,11 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/loginScreen">
-
+    app:startDestination="@id/login">
+    <fragment
+        android:id="@+id/login"
+        android:name="com.admiral26.uybor.ui.login.Login"
+        android:label="login"
+        tools:layout="@layout/login" >
+        <action
+            android:id="@+id/action_login_to_mainScreen"
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true"
+            app:destination="@id/mainScreen" />
+        <action
+            android:id="@+id/action_login_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.admiral26.uybor.ui.main_screen.MainScreen"
+        android:label="screen_main"
+        tools:layout="@layout/screen_main" >
+        <action
+            android:id="@+id/action_mainScreen_to_profileScreen"
+            app:destination="@id/profileScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_homeDetail"
+            app:destination="@id/homeDetail" />
+        <action
+            android:id="@+id/action_mainScreen_to_addNewHomeScreen"
+            app:destination="@id/addNewHomeScreen" />
+    </fragment>
     <fragment
         android:id="@+id/loginScreen"
-        android:name="com.admiral26.uybor.ui.auth.register.LoginScreen"
+        android:name="com.admiral26.uybor.ui.auth.register.SignUpScreen"
         android:label="screen_login"
         tools:layout="@layout/screen_login" >
         <action
@@ -33,8 +61,18 @@
             app:destination="@id/mainScreen" />
     </fragment>
     <fragment
-        android:id="@+id/mainScreen"
-        android:name="com.admiral26.uybor.ui.main_screen.MainScreen"
-        android:label="screen_main"
-        tools:layout="@layout/screen_main" />
+        android:id="@+id/homeDetail"
+        android:name="com.admiral26.uybor.ui.main_screen.home.detail.HomeDetail"
+        android:label="detail_home"
+        tools:layout="@layout/detail_home" />
+    <fragment
+        android:id="@+id/addNewHomeScreen"
+        android:name="com.admiral26.uybor.ui.main_screen.add_new.AddNewHomeScreen"
+        android:label="screen_add_new_home"
+        tools:layout="@layout/screen_add_new_home" />
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="com.admiral26.uybor.ui.main_screen.profile.ProfileScreen"
+        android:label="screen_profile"
+        tools:layout="@layout/screen_profile" />
 </navigation>
